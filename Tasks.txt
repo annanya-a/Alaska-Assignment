@@ -1,0 +1,49 @@
+
+In this exercise, we will ask you to exemplify how you would model, 
+and store data around the flight search space. Ultimately, we will want the data to, at a minimum, 
+be query-able and provide recommendation on travel to answer the following questions:
+1.	What is the conversion rate for an individual flight search result? 
+    For definition, an ‘individual flight search result’ is the following:
+2.	How does the cost in miles affect the guests’ willingness to purchase? 
+    For this question, assume that the conversion space is already tagged successfully, and this data is already accessible.
+3.	How many times does a guest attempt to search for a destination that we do not
+    serve for the given airport or date? This can be demoed through the following flight search: 
+
+Tasks:
+
+1.	Head over to alaskaair.com and perform a search for any flight. 
+    Consider the different elements of data that could be utilized through this interaction. 
+    We would recommend you at least focus on Flight Search and Flight Results as possible events to model, 
+    but feel free to explore beyond those two if you feel further structure is necessary. 
+    Modeling these events as a JSON Schema is preferred.
+
+
+2.	Describe the tools/process you would use to model these events as they occur. 
+    Feel free to include 3rd party tools as part of this process. 
+    
+    - Most of the data for the above created model can be accessed from the HTML forms associated with
+    given page 
+    - Status code - for a successful vs a bad search can also be gotten in the same way
+    - Adobe analytics data can be used to make the orientation of elementson the webpage better  
+    - The popularity metric for a given flight could be used to show flights to the user based on the user profiles 
+
+
+3.	Propose different options of how consumers could interact with the data in real time and 
+    list out the pros and cons.
+    - Showing how a certain flight is popular among a certain user group based on their profiles would help
+    the users to narrow down on their process of choosing a flight
+    - This popularity metric can be populated using a variant of a recommendation engine among segmented user 
+    classes,  profiled on their specific information
+
+4.	The capture strategy will pipe directly to a storage strategy. 
+    Based on how you chose to model data and how you chose to capture it, 
+    please walkthrough the structure the data would have in a datastore. 
+    Please provide any methodologies and list out pros and cons.
+
+    As we follow the NoSql approach, here are a few advantages.
+    - the schema-less, table free architecture makes it easy to scale and open to modifications while providing 
+    flexibility to various data models
+    - The data is modeled on a NoSql format as it would make scaling easier but there are some disadvantages 
+    associated with choosing a NoSql Database over a SQL Database, majoryly being, the absence of ACID properties
+     - thus providing only eventual consistency - in NoSQL making it difficult in cases where the seats for a flight are being booked in parallel by multiple 
+    clients, making the data inconsistent for various users.
