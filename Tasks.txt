@@ -30,6 +30,7 @@ Tasks:
 
 3.	Propose different options of how consumers could interact with the data in real time and 
     list out the pros and cons.
+    
     - Showing how a certain flight is popular among a certain user group based on their profiles would help
     the users to narrow down on their process of choosing a flight
     - This popularity metric can be populated using a variant of a recommendation engine among segmented user 
